@@ -1,0 +1,47 @@
+{
+  "extractedFields": {
+    "policy_number": "POL-78432-AUTO",
+    "policyholder_name": "James A. Whitfield",
+    "effective_date": "01/01/2024",
+    "expiry_date": "12/31/2024",
+    "carrier": "SafeGuard Insurance Co.",
+    "date_of_loss": "03/15/2024",
+    "time_of_loss": "08:45 AM",
+    "location_of_loss": "I-95 Northbound, Exit 22, Miami, FL 33132",
+    "incident_description": "Insured vehicle (2021 Toyota Camry) was rear-ended\nby a red pickup truck while stopped in traffic near\nExit 22. The other driver admitted fault at the scene.\nNo injuries were reported.",
+    "police_report_number": null,
+    "claimant_name": "James A. Whitfield",
+    "claimant_contact": "(305) 555-0192 | james.whitfield@email.com",
+    "third_parties": [
+      "Name: Robert L. Chen",
+      "Contact: (305) 555-0847 | robert.chen@email.com",
+      "Insurance: StarCover Auto \u2013 Policy #SC-2024-00921"
+    ],
+    "witnesses": [],
+    "asset_type": "Vehicle \u2013 Personal Automobile",
+    "asset_id": "4T1BF1FK5MU123456",
+    "asset_description": "2021 Toyota Camry SE",
+    "damage_description": "Rear bumper crushed, trunk damage, broken tail",
+    "estimated_damage_amount": 8500.0,
+    "claim_type": "Property Damage",
+    "attachments": [
+      "Police Report #MDP-2024-33891",
+      "Photos (6 images)"
+    ],
+    "initial_estimate": 8500.0
+  },
+  "missingFields": [],
+  "recommendedRoute": "Fast-track",
+  "reasoning": "Estimated damage ($8,500) is below the $25,000 fast-track threshold and all mandatory fields are present with no fraud indicators. Eligible for automated fast-track settlement.",
+  "_metadata": {
+    "file": "fnol_001_fasttrack.pdf",
+    "processed_at": "2026-05-14T10:29:23.705867+00:00",
+    "extraction_method": "Claude AI",
+    "is_blank_form": false,
+    "recommended_missing_fields": [
+      "police_report_number"
+    ],
+    "inconsistencies": [],
+    "flags": []
+  }
+}
