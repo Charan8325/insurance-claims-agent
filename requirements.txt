@@ -1,10 +1,6 @@
-# Core dependencies
-pdfplumber>=0.10.0       # PDF text extraction
-pypdf>=4.0.0             # PDF reading & form fields
-reportlab>=4.0.0         # Generating dummy FNOL test PDFs
-
-# AI-powered extraction (optional — falls back to regex without it)
-anthropic>=0.25.0        # Claude API client
-
-# Testing
+pdfplumber>=0.10.0
+pypdf>=4.0.0
+reportlab>=4.0.0
+anthropic>=0.25.0
 pytest>=7.0.0
+streamlit>=1.45.0
