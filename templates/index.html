@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insurance Claims Agent</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+        }
+        main {
+            max-width: 800px;
+            margin: 2rem auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #333;
+        }
+        form {
+            margin-bottom: 2rem;
+        }
+        input[type="file"] {
+            display: block;
+            margin: 1rem 0;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .response-container {
+            margin-top: 2rem;
+            padding: 1rem;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .response-container h2 {
+            color: #007bff;
+        }
+        .response-container pre {
+            background: #333;
+            color: #f4f4f9;
+            padding: 1rem;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Insurance Claims Processing Agent</h1>
+    </header>
+    <main>
+        <h1>Upload FNOL PDF</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data" id="uploadForm">
+            <label for="file">Select a PDF file:</label>
+            <input type="file" name="file" id="file" accept="application/pdf" required>
+            <button type="submit">Submit</button>
+        </form>
+
+        <div class="response-container" id="responseContainer" style="display: none;">
+            <h2>Processing Result</h2>
+            <pre id="responseData"></pre>
+        </div>
+    </main>
+
+    <script>
+        const form = document.getElementById('uploadForm');
+        const responseContainer = document.getElementById('responseContainer');
+        const responseData = document.getElementById('responseData');
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const formData = new FormData(form);
+            responseContainer.style.display = 'none'; // Hide response container initially
+
+            try {
+                const response = await fetch('/upload', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    throw new Error('Failed to process the file. Please try again.');
+                }
+
+                const data = await response.json();
+                responseData.textContent = JSON.stringify(data, null, 2); // Format JSON response
+                responseContainer.style.display = 'block'; // Show response container
+            } catch (error) {
+                responseData.textContent = `Error: ${error.message}`;
+                responseContainer.style.display = 'block'; // Show error message
+            }
+        });
+    </script>
+</body>
+</html>
